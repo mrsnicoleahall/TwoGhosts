@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
 ---
 
 <Layout title="Creative & Content - Two Ghosts Strategy">
@@ -72,8 +73,7 @@ import Navigation from '../../components/Navigation.astro';
       <div class="text-center mt-12">
         <a
           href="/schedule"
-          class="inline-block px-8 py-3 text-white font-black rounded-full border-2 border-white hover:bg-white hover:text-black transition-all"
-          style="background: linear-gradient(90deg, #8F6AFA 18.59%, #375CDC 68.36%, #0099EE 105%);"
+          class="btn-gradient inline-block px-8 py-3 text-white font-black rounded-full"
         >
           Let's Talk Strategy
         </a>
@@ -81,9 +81,5 @@ import Navigation from '../../components/Navigation.astro';
     </div>
   </section>
 
-  <footer class="container-80 py-12 border-t border-gray-800 mt-16">
-    <div class="text-center text-gray-400">
-      <p>&copy; 2025 TWOGHOSTS, LLC. All Rights Reserved.</p>
-    </div>
-  </footer>
+  <Footer />
 </Layout>
