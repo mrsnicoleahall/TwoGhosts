@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Terms of Service - Two Ghosts Strategy">
+  <Navigation />
+
+  <div class="relative">
+    <div class="max-w-7xl mx-auto px-10 py-10">
+      <div class="w-full pt-10">
+        <div class="title-section relative mb-16">
+          <div class="bgtext">
+            Terms
+          </div>
+          <h1 class="title">
+            Terms of Service
+          </h1>
+        </div>
+      </div>
+
+      <div class="prose prose-invert max-w-none">
+        <div class="space-y-8 text-gray-50">
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Agreement to Terms</h2>
+            <p class="text-lg">
+              By accessing or using the Two Ghosts Strategy website, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using this site.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Use License</h2>
+            <p class="text-lg mb-4">
+              Permission is granted to temporarily access the materials on Two Ghosts Strategy's website for personal, non-commercial use only. This is the grant of a license, not a transfer of title, and under this license you may not:
+            </p>
+            <ul class="list-disc pl-6 space-y-2 text-lg">
+              <li>Modify or copy the materials</li>
+              <li>Use the materials for any commercial purpose or public display</li>
+              <li>Attempt to reverse engineer any software contained on the website</li>
+              <li>Remove any copyright or proprietary notations from the materials</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Intellectual Property</h2>
+            <p class="text-lg">
+              All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Two Ghosts Strategy or its content suppliers and is protected by copyright and intellectual property laws.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Disclaimer</h2>
+            <p class="text-lg">
+              The materials on Two Ghosts Strategy's website are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim all other warranties including, without limitation, implied warranties of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Limitations</h2>
+            <p class="text-lg">
+              In no event shall Two Ghosts Strategy or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on our website.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Revisions</h2>
+            <p class="text-lg">
+              We may revise these Terms of Service at any time without notice. By using this website, you agree to be bound by the current version of these Terms of Service.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Governing Law</h2>
+            <p class="text-lg">
+              These terms and conditions are governed by and construed in accordance with the laws of North Carolina, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Contact Us</h2>
+            <p class="text-lg">
+              If you have questions about these Terms of Service, please contact us at:<br>
+              <a href="mailto:hello@twoghoststrategy.com" class="text-[#8F6AFA] hover:text-[#375CDC]">hello@twoghoststrategy.com</a>
+            </p>
+          </section>
+
+          <section>
+            <p class="text-sm text-gray-400">
+              Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  .title {
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bgtext {
+    max-width: 150%;
+    z-index: -10;
+    opacity: 0.1;
+    font-size: 15rem;
+    font-weight: 900;
+    line-height: 1;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    display: inline-block;
+    position: absolute;
+    left: -20px;
+    top: -80px;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    overflow: visible;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .title {
+      font-size: 3rem;
+    }
+    .bgtext {
+      font-size: 8rem;
+      top: -30px;
+    }
+  }
+</style>

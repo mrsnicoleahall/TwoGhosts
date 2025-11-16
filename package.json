@@ -4,11 +4,24 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && npm run check:seo",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:seo": "node scripts/check-seo-routes.mjs"
   },
   "dependencies": {
-    "astro": "^5.15.8"
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/rss": "^4.0.13",
+    "@astrojs/sitemap": "^3.6.0",
+    "@rcb-plugins/llm-connector": "^0.4.0",
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.15.8",
+    "framer-motion": "^12.23.24",
+    "react": "^19.2.0",
+    "react-chatbotify": "^2.4.1",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.17"
   }
 }

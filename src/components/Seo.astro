@@ -1,0 +1,45 @@
+---
+import type { SeoMeta } from '../config/seo';
+import { siteDefaults } from '../config/seo';
+
+const { seo } = Astro.props as { seo: SeoMeta };
+
+const url = new URL(seo.canonical ?? seo.path, siteDefaults.siteUrl).toString();
+const title = seo.title ?? siteDefaults.siteName;
+const description = seo.description ?? '';
+const ogImage = new URL(seo.ogImage ?? siteDefaults.defaultOgImage, siteDefaults.siteUrl).toString();
+const ogType = seo.ogType ?? siteDefaults.defaultOgType;
+---
+
+<Fragment>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {seo.keywords && <meta name="keywords" content={seo.keywords.join(', ')} />}
+
+  {seo.noIndex && (
+    <meta name="robots" content="noindex,nofollow" />
+  )}
+
+  <link rel="canonical" href={url} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={url} />
+  <meta property="og:site_name" content={siteDefaults.siteName} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  {siteDefaults.defaultTwitterHandle && (
+    <meta name="twitter:site" content={siteDefaults.defaultTwitterHandle} />
+  )}
+
+  {seo.schemaJsonLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(seo.schemaJsonLd)} />
+  )}
+</Fragment>

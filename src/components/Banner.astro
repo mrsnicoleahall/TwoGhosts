@@ -1,0 +1,136 @@
+---
+// Banner Component - Hero Section
+import Button from './Button.astro';
+---
+
+<div class="flex flex-wrap overflow-visible px-0 relative">
+  <!-- Text / Left Column -->
+  <div class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 order-last sm:order-first mt-0 lg:mt-20 xl:mt-20 2xl:mt-20 mb-10 lg:mb-20 px-0 overflow-visible">
+    <div class="title-section relative overflow-visible">
+      <div class="bgtext-hero">Hello</div>
+      <h1 class="title">
+        We Need To Talk.
+      </h1>
+    </div>
+
+    <h4 class="subtitle">
+      It's about your marketing and branding again... it's been frightening. We're here to fix gigantic marketing messes.
+    </h4>
+
+    <div class="mt-8">
+      <Button href="/schedule" text="Schedule A Call" />
+    </div>
+  </div>
+
+  <!-- Illustration / Right Column -->
+  <div class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 order-first sm:order-last mb-12 md:mb-0 overflow-visible">
+    <div class="story-image">
+      <img
+        src="/images/runaway-girl.svg"
+        alt="Running away from bad marketing"
+        class="w-full h-auto runner"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  .title-section {
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  .title {
+    color: #fff;
+    font-size: clamp(3rem, 5vw, 4.75rem);
+    font-weight: 900;
+    animation: fadeInLeft 1000ms ease-out 200ms both;
+    word-break: break-word;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+    max-width: 16ch;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    margin-top: 1.5rem;
+    max-width: 38rem;
+  }
+
+  .bgtext {
+    display: none;
+  }
+
+  .bgtext-hero {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(8rem, 18vw, 15rem);
+    color: transparent;
+    -webkit-text-stroke: 1px #ffffff;
+    text-stroke: 1px #ffffff;
+    white-space: nowrap;
+    line-height: 1;
+    opacity: 0.85;
+    z-index: 0;
+    overflow: visible;
+    left: -40px;
+    top: -120px;
+  }
+
+  .runner {
+    animation: runner 12s linear infinite;
+  }
+
+  @keyframes runner {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(-3deg); }
+    30% { transform: rotate(0deg); }
+    40% { transform: rotate(3deg); }
+    50% { transform: rotate(0deg); }
+    60% { transform: rotate(-3deg); }
+    70% { transform: rotate(0deg); }
+    80% { transform: rotate(3deg); }
+    90% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @media only screen and (max-width: 992px) {
+    .title-section {
+      padding-top: 1rem;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .bgtext {
+      font-size: clamp(6rem, 26vw, 9rem);
+      top: -50px;
+      left: -10px;
+      opacity: 0.7;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      max-width: none;
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+</style>

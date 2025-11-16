@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Definition from '../components/Definition.astro';
+import Footer from '../components/Footer.astro';
+import StrategyModel from '../components/StrategyModel.tsx';
+import FAQ from '../components/FAQ.tsx';
+import Quiz from '../components/Quiz.tsx';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's it like to work with TWOGHOSTS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most clients come to us with a growth problem they can feel but cannot name. We start by getting to know you, your numbers, your customers, and your chaos. Then we either build a full strategy with a three-year roadmap or we plug in with a fixed block of hours you can use as needed. Most clients start with strategy, then keep us on to help implement the plan, pressure-test decisions, and keep things from drifting back into random acts of marketing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What industries does TWOGHOSTS service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We work across industries, but we are especially at home in B2B. We have deep experience with agencies, franchises, SaaS, medical, and manufacturing. The pattern is the same: complex sales, long buying cycles, and a lot of people involved. If your problem lives in marketing, sales, or business growth, we are comfortable there. We do the homework so by the end of the process we know your industry almost as well as you do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why don't you have a more traditional agency website? What is the deal here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because traditional agency websites are wallpaper. Same templates. Same copy. Same fake case studies. If you wanted that, you would not still be reading this. TWOGHOSTS exists for people who already tried the traditional route and learned the hard way that pretty decks alone do not move numbers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you a full-service agency or what?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are not a \"full-service agency\" in the sense of trying to be everything to everyone. We are strategy-first. We help you figure out what to do, why it matters, and how it should work together. Then we either help execute pieces of it or work with your in-house team and existing partners. We care more about being effective than being on every line item of your marketing budget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you manage ads and social, or just strategy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We do both, but not in a \"post 20 times a week and hope\" kind of way. If we manage ads or social, it is as part of a clear strategy, tied to real goals, with reporting that makes sense to non-marketers. If you just want someone to babysit platforms, we are probably not the right fit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does this cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We publish our pricing, which is already unusual in agency land. Strategy is a defined engagement with a clear price and timeline. Implementation is scoped by blocks of hours or specific projects. Most clients invest less than the cost of hiring a senior in-house marketer and get an entire bench of brains instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size companies do you work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We tend to work with companies that are past pure startup chaos and before bloated-enterprise-stuck-in-committee. In plain terms: you have revenue, you have customers, and you have something to lose if you keep guessing. That ranges from funded startups to established mid-market brands."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will you work with our in-house team or current agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We like smart internal teams and good partners. We are not here to steal accounts or empire-build. If you have people who handle creative, media, or dev, we plug in at the strategy layer, help them prioritize and execute, and make sure the whole machine is pointed in the same direction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will you build our website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We can, but we are picky about it. A website is not a pretty brochure, it is infrastructure. If we take on your site, we are going to ask annoying questions about your offers, positioning, sales process, and tech stack. If you want a quick reskin with no thinking, there are cheaper options and they have plenty of templates ready."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you lock clients into long-term retainers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No never-ending hostage retainers. Strategy is a fixed engagement. Ongoing work is either blocks of hours or clearly scoped retainers you can step out of with reasonable notice. If someone has to trap you in a contract to keep you around, the work is not good enough."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes you different from every other \"clever\" agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We actually like numbers. We enjoy creative, but we measure success in revenue, qualified pipeline, and real-world outcomes. The brand and the ads should be fun, but the dashboards should be boring in the best way. Also, we tell you the truth when something is a bad idea, even if it is the shiny one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are you located? Do you work remotely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are built to work remotely with clients in different time zones. Most of our work happens through video calls, shared docs, and async updates. If you need in-person workshops or on-site sessions, we can talk about that too, but geography is not a limiting factor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after the strategy is done?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You do not get a pretty deck and a \"good luck.\" You get a prioritized roadmap, clear next steps, and options. Some clients keep us on to run point on execution. Others have internal teams who take the plan and run with it while we stay on as a sounding board. The plan is built to be used, not archived."
+      }
+    }
+  ]
+};
+---
+
+<Layout title="About Us - Two Ghosts Strategy">
+  <Navigation />
+
+  <!-- About Header Section -->
+  <section class="w-full px-6 sm:px-10 py-16">
+    <div class="max-w-7xl mx-auto">
+      <!-- Heading -->
+      <div class="section-heading relative">
+        <div class="bgtext-section">Do You Like Us?</div>
+        <h1 class="section-title">
+          About Us
+        </h1>
+      </div>
+
+      <!-- Definition + Illustration -->
+      <div
+        class="mt-12 grid gap-10 lg:gap-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.3fr)] items-center"
+      >
+        <!-- Definition column -->
+        <div class="flex justify-start">
+          <div class="w-full">
+            <Definition />
+          </div>
+        </div>
+
+        <!-- Illustration column -->
+        <div class="flex justify-center lg:justify-end">
+          <img
+            src="/images/businessman.svg"
+            alt="Business strategy illustration"
+            class="w-full max-w-xl lg:max-w-2xl h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Strategy Model Section -->
+  <section id="Model" class="w-full px-10 py-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-10 title section-heading relative">
+        <div class="bgtext-section">Strategy</div>
+        <h2 class="section-title">
+          Our Strategic Model
+        </h2>
+      </div>
+      <StrategyModel client:load />
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="FAQ" class="w-full px-10 py-10">
+    <div class="max-w-7xl mx-auto">
+      <FAQ client:load />
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section class="w-full px-10 py-10">
+    <div class="max-w-7xl mx-auto">
+      <Quiz client:load />
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- FAQ Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

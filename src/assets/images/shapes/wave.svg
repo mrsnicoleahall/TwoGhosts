@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="57px" height="23px" viewBox="0 0 57 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>wave</title>
+    <defs>
+        <filter x="-26.5%" y="-91.7%" width="152.9%" height="283.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="3" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0901960784   0 0 0 0 0.062745098   0 0 0 0 0.250980392  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="0%" y1="0%" x2="105%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#8F6AFA" offset="0%"></stop>
+            <stop stop-color="#375CDC" offset="56.7708%"></stop>
+            <stop stop-color="#0099EE" offset="100%"></stop>
+        </linearGradient>
+        <path d="M38.1966527,14.7238494 C41.3974895,14.7238494 43.9759414,14.1903766 45.9320084,13.123431 C47.8880753,12.0564854 49.5774059,10.6338912 51,8.85564854 L51,8.85564854 L47.4790795,4.16108787 C45.8430962,5.37029289 44.4027197,6.2416318 43.1579498,6.7751046 C41.9131799,7.30857741 40.4016736,7.57531381 38.623431,7.57531381 C36.41841,7.57531381 34.3556485,7.21966527 32.4351464,6.5083682 C30.5146444,5.79707113 28.5585774,4.94351464 26.5669456,3.94769874 C24.0774059,2.73849372 21.8190377,1.77824268 19.791841,1.06694561 C17.7646444,0.355648536 15.4351464,0 12.8033473,0 C9.60251046,0 7.02405858,0.533472803 5.06799163,1.60041841 C3.11192469,2.66736402 1.42259414,4.08995816 0,5.86820084 L0,5.86820084 L3.5209205,10.5627615 C5.15690377,9.35355649 6.59728033,8.48221757 7.84205021,7.94874477 C9.08682008,7.41527197 10.5983264,7.14853556 12.376569,7.14853556 C14.58159,7.14853556 16.6443515,7.5041841 18.5648536,8.21548117 C20.4853556,8.92677824 22.4414226,9.78033473 24.4330544,10.7761506 C26.9225941,11.9853556 29.1809623,12.9456067 31.208159,13.6569038 C33.2353556,14.3682008 35.5648536,14.7238494 38.1966527,14.7238494 Z" id="path-3"></path>
+    </defs>
+    <g id="🧬-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brand/Logotype/On-Light" transform="translate(-4.000000, -16.000000)" fill-rule="nonzero">
+            <g id="wave" transform="translate(4.856522, 16.738075)" filter="url(#filter-1)">
+                <g id="~">
+                    <use fill="#3E3E3E" xlink:href="#path-3"></use>
+                    <use fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

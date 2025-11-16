@@ -1,0 +1,45 @@
+---
+import { getAllServices } from '../config/services';
+
+// Get all services from centralized config
+const services = getAllServices();
+---
+
+<section class="pt-24" id="services">
+  <div class="w-full px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32">
+    <div class="section-heading relative">
+      <div class="bgtext-section">Services</div>
+      <h2 class="section-title">
+        What We Do
+      </h2>
+    </div>
+  </div>
+
+  <div class="relative py-16 sm:py-24 lg:py-32">
+    <div class="w-full px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32">
+      <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+        {services.map((service) => (
+          <a href={service.link} class="group h-full">
+            <div
+              class="h-full flex flex-col items-center text-center rounded-3xl border border-white/10 bg-white/5 glass px-10 py-12 sm:px-12 sm:py-14 shadow-lg shadow-black/40 transition-all hover:-translate-y-2 hover:shadow-2xl hover:border-white/25 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-center w-32 h-32 rounded-3xl bg-black/70 border border-white/15 shadow-md mb-8">
+                <img src={service.icon} alt={service.name} class="w-24 h-24" />
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight group-hover:gradient-ghost transition-all">
+                {service.name}
+              </h3>
+
+              <p class="mt-5 text-sm sm:text-base text-gray-200 leading-relaxed">
+                {service.description}
+              </p>
+
+              <div class="mt-6 sm:mt-8 flex-1" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

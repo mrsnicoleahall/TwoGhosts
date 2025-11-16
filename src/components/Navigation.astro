@@ -1,0 +1,198 @@
+---
+import Button from './Button.astro';
+
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Contact', href: '/contact' },
+];
+
+const services = [
+  { name: 'Brand Strategy', href: '/services/brand-strategy' },
+  { name: 'Marketing Strategy', href: '/services/marketing-strategy' },
+  { name: 'Growth Campaigns', href: '/services/growth-campaigns' },
+  { name: 'Creative & Content', href: '/services/creative-content' },
+  { name: 'CMO-on-Demand', href: '/services/cmo-on-demand' },
+  { name: 'Brand Identity & Design', href: '/services/brand-identity-design' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 glass">
+  <div class="container-80 py-6">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img
+          src="/images/logo/horizontal_white_twoghosts_logo.svg"
+          alt="Two Ghosts Strategy"
+          class="h-10 w-auto"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.slice(0, 3).map(item => (
+          <a
+            href={item.href}
+            class="nav-link text-base font-medium text-white"
+          >
+            {item.name}
+          </a>
+        ))}
+
+        <!-- Services Dropdown -->
+        <div class="relative group flex items-center">
+          <!-- Button styled to match other nav links exactly -->
+          <button class="nav-link text-base font-medium text-white p-0 border-0 bg-none cursor-pointer whitespace-nowrap" style="line-height: 1;">
+            Services
+            <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full mt-2 w-64 rounded-lg services-dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-white/10">
+            <div class="py-2">
+              {services.map(service => (
+                <a
+                  href={service.href}
+                  class="block px-6 py-3 text-sm text-white hover:bg-white/10 hover:text-[#8F6AFA] transition-colors"
+                >
+                  {service.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {navItems.slice(3).map(item => (
+          <a
+            href={item.href}
+            class="nav-link text-base font-medium text-white"
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <Button href="/schedule" text="Schedule A Call" />
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white" id="mobile-menu-button">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="hidden md:hidden" id="mobile-menu">
+    <div class="px-6 py-4 space-y-4">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="block text-base font-medium text-white hover:text-[#8F6AFA] transition-colors"
+        >
+          {item.name}
+        </a>
+      ))}
+
+      <!-- Mobile Services -->
+      <div>
+        <button class="w-full text-left text-base font-medium text-white hover:text-[#8F6AFA] transition-colors flex items-center justify-between" id="mobile-services-button">
+          Services
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="hidden mt-2 ml-4 space-y-2" id="mobile-services-menu">
+          {services.map(service => (
+            <a
+              href={service.href}
+              class="block text-sm text-gray-300 hover:text-[#8F6AFA] transition-colors py-1"
+            >
+              {service.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="pt-4">
+        <Button href="/schedule" text="Schedule A Call" />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileServicesButton = document.getElementById('mobile-services-button');
+  const mobileServicesMenu = document.getElementById('mobile-services-menu');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  if (mobileServicesButton && mobileServicesMenu) {
+    mobileServicesButton.addEventListener('click', () => {
+      mobileServicesMenu.classList.toggle('hidden');
+    });
+  }
+</script>
+
+<!-- Spacer for fixed nav -->
+<div class="h-24"></div>
+
+<style>
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.3s ease;
+    line-height: 1;
+    vertical-align: baseline;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8F6AFA 18.59%, #375CDC 68.36%, #0099EE 105%);
+    transition: width 0.6s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Reset button styles for nav dropdown */
+  .nav-link[type="submit"],
+  button.nav-link {
+    font: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration: inherit;
+    color: inherit;
+  }
+
+  .services-dropdown {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+  }
+</style>

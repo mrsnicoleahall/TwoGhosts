@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3746px" height="788px" viewBox="0 0 3746 788" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>singlewave</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="105%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#6633FF" offset="0%"></stop>
+            <stop stop-color="#3366FF" offset="56.7708%"></stop>
+            <stop stop-color="#0099FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="waves" transform="translate(-1537.000000, -864.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="wavecluster" transform="translate(1537.427000, 864.865037)">
+                <path d="M1068.041,745.001349 C593.201,831.821349 5.383,756.721349 0,755.241349 L5.72,745.551349 C11.92,745.651349 589.681,820.131349 1052.821,735.451349 C1445.791,663.591349 1682.031,518.011349 1911.141,377.431349 C2299.101,137.481349 2664.141,-88.4086509 3745.231,34.6813491 L3741.031,45.3113491 C2679.251,-75.1286509 2318.181,147.561349 1936.531,383.891349 C1705.081,524.901349 1468.031,671.871349 1068.041,745.001349 Z" id="singlewave"></path>
+            </g>
+        </g>
+    </g>
+</svg>

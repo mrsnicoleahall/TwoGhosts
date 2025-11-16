@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160px" height="150px" viewBox="0 0 160 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>shapes/donut</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="105%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#8F6AFA" offset="0%"></stop>
+            <stop stop-color="#375CDC" offset="56.7708%"></stop>
+            <stop stop-color="#0099EE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="shapes/donut" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="donut" stroke="url(#linearGradient-1)" stroke-width="10" cx="80" cy="71" r="59"></circle>
+    </g>
+</svg>

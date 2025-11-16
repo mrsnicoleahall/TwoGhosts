@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@reference "tailwindcss";
+
+@theme {
+  /* Two Ghosts Brand Colors */
+  --color-ghost-purple: #8F6AFA;
+  --color-ghost-blue: #375CDC;
+  --color-ghost-light-blue: #0099EE;
+  --color-ghost-black: #000000;
+  --color-ghost-white: #ffffff;
+
+  /* Gradient */
+  --gradient-ghost: linear-gradient(90deg, #8F6AFA 18.59%, #375CDC 68.36%, #0099EE 105%);
+
+  /* Custom Spacing for 80% width containers */
+  --width-container: 80vw;
+}
+
+@layer base {
+  * {
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    @apply bg-black text-white;
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+    @apply text-white;
+  }
+
+  p, span, div, a, li, button {
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-ghost {
+    background: linear-gradient(90deg, #8F6AFA 18.59%, #375CDC 68.36%, #0099EE 105%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .container-80 {
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-gradient {
+    @apply inline-block px-6 py-3 text-base font-black rounded-full;
+    position: relative;
+    color: white;
+    border: 2px solid white;
+    background: transparent;
+    overflow: hidden;
+    transition: color 0.8s ease;
+    z-index: 1;
+  }
+
+  .btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #8F6AFA 18.59%, #375CDC 68.36%, #0099EE 105%);
+    transition: width 0.8s ease;
+    z-index: -1;
+  }
+
+  .btn-gradient:hover::before {
+    width: 100%;
+  }
+
+  .btn-gradient:hover {
+    color: white;
+  }
+
+  .bgtext-section {
+    position: absolute;
+    left: -20px;
+    top: -60px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(4rem, 12vw, 8rem);
+    color: transparent;
+    -webkit-text-stroke: 1px #ffffff;
+    text-stroke: 1px #ffffff;
+    white-space: nowrap;
+    line-height: 1;
+    opacity: 0.10;
+    z-index: 0;
+    overflow: visible;
+  }
+
+  .section-title {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  .section-heading {
+    position: relative;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy - Two Ghosts Strategy">
+  <Navigation />
+
+  <div class="relative">
+    <div class="max-w-7xl mx-auto px-10 py-10">
+      <div class="w-full pt-10">
+        <div class="title-section relative mb-16">
+          <div class="bgtext">
+            Privacy
+          </div>
+          <h1 class="title">
+            Privacy Policy
+          </h1>
+        </div>
+      </div>
+
+      <div class="prose prose-invert max-w-none">
+        <div class="space-y-8 text-gray-50">
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Introduction</h2>
+            <p class="text-lg">
+              At Two Ghosts Strategy ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website twoghoststrategy.com.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Information We Collect</h2>
+            <p class="text-lg mb-4">We may collect information about you in various ways, including:</p>
+            <ul class="list-disc pl-6 space-y-2 text-lg">
+              <li><strong>Personal Data:</strong> Name, email address, phone number, and any other information you voluntarily provide through contact forms or newsletter signups.</li>
+              <li><strong>Usage Data:</strong> Information about how you use our website, including your IP address, browser type, pages visited, and time spent on pages.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">How We Use Your Information</h2>
+            <p class="text-lg mb-4">We use the information we collect to:</p>
+            <ul class="list-disc pl-6 space-y-2 text-lg">
+              <li>Respond to your inquiries and provide customer support</li>
+              <li>Send you marketing communications (if you've opted in)</li>
+              <li>Improve our website and services</li>
+              <li>Analyze usage patterns and trends</li>
+              <li>Comply with legal obligations</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Information Sharing</h2>
+            <p class="text-lg">
+              We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website and conducting our business, subject to confidentiality obligations.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Cookies and Tracking</h2>
+            <p class="text-lg">
+              We use cookies and similar tracking technologies to enhance your experience on our website. You can control cookie settings through your browser preferences.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Your Rights</h2>
+            <p class="text-lg mb-4">You have the right to:</p>
+            <ul class="list-disc pl-6 space-y-2 text-lg">
+              <li>Access the personal information we hold about you</li>
+              <li>Request correction of inaccurate information</li>
+              <li>Request deletion of your personal information</li>
+              <li>Opt-out of marketing communications at any time</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-3xl font-bold text-white mb-4">Contact Us</h2>
+            <p class="text-lg">
+              If you have questions about this Privacy Policy, please contact us at:<br>
+              <a href="mailto:hello@twoghoststrategy.com" class="text-[#8F6AFA] hover:text-[#375CDC]">hello@twoghoststrategy.com</a>
+            </p>
+          </section>
+
+          <section>
+            <p class="text-sm text-gray-400">
+              Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  .title {
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bgtext {
+    max-width: 150%;
+    z-index: -10;
+    opacity: 0.1;
+    font-size: 15rem;
+    font-weight: 900;
+    line-height: 1;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    display: inline-block;
+    position: absolute;
+    left: -20px;
+    top: -80px;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    overflow: visible;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .title {
+      font-size: 3rem;
+    }
+    .bgtext {
+      font-size: 8rem;
+      top: -30px;
+    }
+  }
+</style>

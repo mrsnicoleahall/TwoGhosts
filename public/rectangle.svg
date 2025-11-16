@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="38px" viewBox="0 0 39 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Rectangle</title>
+    <defs>
+        <path d="M19.7557911,2.21895043 L34.3867068,29.0422957 C34.9156322,30.0119924 34.5583166,31.2268657 33.5886199,31.7557911 C33.2948427,31.9160333 32.9655536,32 32.6309156,32 L3.36908438,32 C2.26451488,32 1.36908438,31.1045695 1.36908438,30 C1.36908438,29.665362 1.45305112,29.3360729 1.61329323,29.0422957 L16.2442089,2.21895043 C16.7731343,1.24925376 17.9880076,0.891938091 18.9577043,1.42086355 C19.2948373,1.6047543 19.5719004,1.8818174 19.7557911,2.21895043 Z" id="path-1"></path>
+        <filter x="-5.9%" y="-4.0%" width="125.7%" height="135.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="3" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0901960784   0 0 0 0 0.062745098   0 0 0 0 0.250980392  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rectangle" transform="translate(-1.000000, -1.000000)">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill="#0099EE" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

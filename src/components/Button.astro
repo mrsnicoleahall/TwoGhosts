@@ -1,0 +1,51 @@
+---
+interface Props {
+  href?: string;
+  text: string;
+  class?: string;
+}
+
+const { href = '#', text, class: className = '' } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`btn-gradient ${className}`}
+>
+  {text}
+</a>
+
+<style>
+  @reference "tailwindcss";
+
+  .btn-gradient {
+    @apply inline-block px-6 py-3 text-base font-black rounded-full;
+    position: relative;
+    color: white;
+    border: 2px solid white;
+    background: transparent;
+    overflow: hidden;
+    transition: color 0.8s ease;
+    z-index: 1;
+  }
+
+  .btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #8F6AFA 18.59%, #375CDC 68.36%, #0099EE 105%);
+    transition: width 0.8s ease;
+    z-index: -1;
+  }
+
+  .btn-gradient:hover::before {
+    width: 100%;
+  }
+
+  .btn-gradient:hover {
+    color: white;
+  }
+</style>

@@ -1,0 +1,156 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import Seo from '../../components/Seo.astro';
+import { siteDefaults } from '../../config/seo';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+// Helper to parse dates that might be multiline strings
+const parseDate = (dateStr: any): Date => {
+  if (dateStr instanceof Date) return dateStr;
+  const cleanDate = typeof dateStr === 'string' ? dateStr.trim().split('\n')[0] : String(dateStr);
+  return new Date(cleanDate);
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Build SEO metadata with BlogPosting schema
+const title = post.data.title;
+const description = post.data.excerpt || post.data.meta_description || '';
+const pubDate = parseDate(post.data.date);
+const heroImage = post.data.feature_image;
+
+const schemaJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  'headline': title,
+  'description': description,
+  'image': heroImage ? new URL(heroImage, siteDefaults.siteUrl).toString() : undefined,
+  'datePublished': pubDate.toISOString(),
+  'dateModified': post.data.updated ? parseDate(post.data.updated).toISOString() : pubDate.toISOString(),
+  'author': {
+    '@type': post.data.author ? 'Person' : 'Organization',
+    'name': post.data.author || 'TWOGHOSTS',
+  },
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'TWOGHOSTS',
+    'logo': {
+      '@type': 'ImageObject',
+      'url': new URL('/logo.svg', siteDefaults.siteUrl).toString(),
+    },
+  },
+  'mainEntityOfPage': {
+    '@type': 'WebPage',
+    '@id': new URL(Astro.url.pathname, siteDefaults.siteUrl).toString(),
+  },
+};
+
+const seo = {
+  path: Astro.url.pathname,
+  title: `${title} | TWOGHOSTS Blog`,
+  description,
+  ogImage: heroImage,
+  ogType: 'article',
+  canonical: new URL(Astro.url.pathname, siteDefaults.siteUrl).toString(),
+  keywords: post.data.tags || [],
+  schemaJsonLd,
+};
+---
+
+<Layout title={`${post.data.title} - Two Ghosts Strategy`}>
+  <Seo seo={seo} />
+  <Navigation />
+
+  <article class="max-w-4xl mx-auto px-10 py-10">
+    <header class="mb-12">
+      <h1 class="text-6xl font-black tracking-tight text-white mb-4">
+        {post.data.title}
+      </h1>
+      <div class="flex items-center space-x-4 text-gray-400">
+        <time datetime={parseDate(post.data.date).toISOString()}>
+          {parseDate(post.data.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
+        {post.data.tags && (
+          <div class="flex gap-2">
+            {post.data.tags.map((tag: string) => (
+              <span class="px-3 py-1 rounded-full glass text-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <div class="prose prose-invert prose-lg max-w-none">
+      <Content />
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-800">
+      <a href="/blog" class="text-[#8F6AFA] hover:underline">
+        ← Back to all posts
+      </a>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
+
+<style>
+  .prose {
+    color: #e5e5e5;
+  }
+
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    color: white;
+    
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .prose a {
+    color: #8F6AFA;
+    text-decoration: underline;
+  }
+
+  .prose a:hover {
+    color: #0099EE;
+  }
+
+  .prose img {
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+  }
+
+  .prose ul,
+  .prose ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+</style>

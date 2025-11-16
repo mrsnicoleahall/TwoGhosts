@@ -1,0 +1,185 @@
+---
+// Footer Component with Newsletter
+---
+
+<footer class="bg-black border-t border-white/10 mt-24">
+  <!-- Main footer content -->
+  <div class="w-full px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32 pt-16 pb-10">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
+
+      <!-- Left: Logo + contact -->
+      <div class="flex flex-col gap-8">
+        <div class="flex items-center gap-6">
+          <img
+            src="/images/logo/abbreviation_white_twoghosts_logo.svg"
+            alt="TWOGHOSTS logo"
+            class="w-28 h-auto sm:w-32"
+          />
+
+          <div class="hidden sm:block h-px flex-1 bg-white/10" />
+        </div>
+
+        <dl class="space-y-3 text-sm sm:text-base text-gray-100 font-['Raleway']">
+          <div>
+            <dt class="sr-only">Location</dt>
+            <dd>Raleigh, NC</dd>
+          </div>
+          <div>
+            <dt class="sr-only">Phone number</dt>
+            <dd>
+              <a href="tel:19843440738" class="hover:text-[#8F6AFA] transition-colors">
+                +1 (984) 344-0738
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="sr-only">Email</dt>
+            <dd>
+              <a href="mailto:hello@twoghoststrategy.com" class="hover:text-[#8F6AFA] transition-colors">
+                hello@twoghoststrategy.com
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Right: Newsletter card -->
+      <div class="flex justify-start lg:justify-end">
+        <div class="relative w-full max-w-md">
+          <div class="w-full rounded-3xl glass border border-white/10 px-8 py-8 sm:px-10 sm:py-10">
+            <h5 class="mb-3 text-lg sm:text-xl font-bold text-white font-['Raleway']">
+              Subscribe to our newsletter
+            </h5>
+            <p class="mb-6 text-sm text-gray-300 font-['Raleway']">
+              No spam. Just occasional strategy, rants, and useful examples from the marketing trenches.
+            </p>
+
+            <div
+              id="newsletter-success"
+              class="hidden mb-4 rounded-lg border border-green-400 bg-green-900/20 p-3 text-sm text-green-400"
+            >
+              Thank you for subscribing!
+            </div>
+
+            <div
+              id="newsletter-error"
+              class="hidden mb-4 rounded-lg border border-red-400 bg-red-900/20 p-3 text-sm text-red-400"
+            >
+              There was an error. Please try again.
+            </div>
+
+            <form id="newsletter-form" class="newsletter-form space-y-3">
+              <input
+                type="email"
+                name="email"
+                id="newsletter-email"
+                required
+                placeholder="Enter your email"
+                class="block w-full rounded-full border-2 border-white/80 bg-black/40 px-4 py-3 text-sm text-white font-['Raleway'] focus:border-white focus:outline-none focus:ring-0"
+              />
+              <button
+                type="submit"
+                id="newsletter-submit"
+                class="btn-gradient w-full rounded-full px-4 py-3 text-sm font-semibold font-['Raleway']"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+          <!-- Pointing illustration tucked into the corner -->
+          <div class="pointer-events-none absolute -bottom-10 right-4 w-24 sm:w-28">
+            <img
+              src="/images/illustrations/pointing.svg"
+              alt="Pointing at newsletter"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/10">
+    <div class="w-full px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32 py-5">
+      <div class="flex flex-col items-center justify-between gap-3 text-xs sm:text-sm text-gray-300 font-['Raleway'] sm:flex-row">
+        <div class="flex items-center gap-4">
+          <a href="/privacy" class="hover:text-[#8F6AFA] transition-colors">Privacy Policy</a>
+          <span class="hidden sm:inline text-gray-500">|</span>
+          <a href="/terms" class="hover:text-[#8F6AFA] transition-colors">Terms of Service</a>
+        </div>
+        <div class="text-center">
+          &copy; 2025 TWOGHOSTS, LLC. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button
+    id="back-to-top"
+    class="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-black/60 text-white opacity-0 invisible transition-all hover:bg-white hover:text-black"
+    aria-label="Back to top"
+  >
+    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+
+  <script>
+    // Back to top functionality
+    const backToTop = document.getElementById('back-to-top');
+
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.remove('opacity-0', 'invisible');
+          backToTop.classList.add('opacity-100', 'visible');
+        } else {
+          backToTop.classList.remove('opacity-100', 'visible');
+          backToTop.classList.add('opacity-0', 'invisible');
+        }
+      });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Newsletter form submission
+    document.getElementById('newsletter-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('newsletter-submit');
+      const successMsg = document.getElementById('newsletter-success');
+      const errorMsg = document.getElementById('newsletter-error');
+
+      if (submitBtn) submitBtn.textContent = 'Subscribing...';
+      successMsg?.classList.add('hidden');
+      errorMsg?.classList.add('hidden');
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://formspree.io/f/xovyeabr', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          successMsg?.classList.remove('hidden');
+          form.reset();
+        } else {
+          errorMsg?.classList.remove('hidden');
+        }
+      } catch {
+        errorMsg?.classList.remove('hidden');
+      } finally {
+        if (submitBtn) submitBtn.textContent = 'Subscribe';
+      }
+    });
+  </script>
+</footer>
