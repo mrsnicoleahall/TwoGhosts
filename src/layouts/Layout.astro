@@ -9,7 +9,7 @@ const seo = getSeoForPath(Astro.url.pathname);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,7 @@ const seo = getSeoForPath(Astro.url.pathname);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   </head>
-  <body class="min-h-screen bg-black text-white">
+  <body class="min-h-screen bg-black text-white overflow-x-hidden">
     <slot />
     <Chatbot client:load />
   </body>

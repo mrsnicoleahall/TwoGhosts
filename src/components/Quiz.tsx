@@ -68,11 +68,11 @@ const Quiz = () => {
         Compatibility
       </div>
 
-      <p class="max-w-3xl mx-auto mb-8 text-lg leading-relaxed text-center text-white">
+      <p class="mb-8 text-lg leading-relaxed text-center text-white">
         With our patented (by patented, we mean, not patented) eliminate-the-BS client→agency compatibility quiz, you can save so much time and energy.
       </p>
 
-      <div class="max-w-3xl mx-auto">
+      <div class="w-full">
         {showScore ? (
           <div class="text-center p-8 glass rounded-lg">
             <p class="text-3xl text-white font-black font-['Raleway'] mb-8">

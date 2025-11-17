@@ -19,8 +19,8 @@ const posts = (await getCollection('blog')).sort(
 <Layout title="Blog - Two Ghosts Strategy">
   <Navigation />
 
-  <section class="max-w-7xl mx-auto px-10 py-10">
-    <div class="section-heading relative mb-8">
+  <section class="container-80 mx-auto px-10 py-10">
+    <div class="section-heading relative mb-8 animate-fadeInUp">
       <div class="bgtext-section">Insights</div>
       <h1 class="section-title">
         Blog
@@ -28,19 +28,30 @@ const posts = (await getCollection('blog')).sort(
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-      {posts.map((post) => (
-        <a href={`/blog/${post.slug}`} class="glass p-6 rounded-lg hover:bg-white/10 transition-all group">
-          <h2 class="text-2xl font-bold mb-3 group-hover:gradient-ghost transition-all">
-            {post.data.title}
-          </h2>
-          <p class="text-gray-300 mb-4">{post.data.excerpt}</p>
-          <span class="text-sm text-gray-400">
-            {parseDate(post.data.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </span>
+      {posts.map((post, index) => (
+        <a href={`/blog/${post.slug}`} class={`glass rounded-lg hover:bg-white/10 transition-all group overflow-hidden flex flex-col animate-fadeInUp delay-${Math.min((index + 1) * 100, 800)}`}>
+          {post.data.feature_image && (
+            <div class="w-full h-48 overflow-hidden">
+              <img
+                src={post.data.feature_image}
+                alt={post.data.title}
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          )}
+          <div class="p-6 flex-1 flex flex-col">
+            <h2 class="text-2xl font-bold mb-3 group-hover:gradient-ghost transition-all">
+              {post.data.title}
+            </h2>
+            <p class="text-gray-300 mb-4 flex-1">{post.data.excerpt}</p>
+            <span class="text-sm text-gray-400">
+              {parseDate(post.data.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
+          </div>
         </a>
       ))}
     </div>

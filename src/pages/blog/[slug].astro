@@ -72,12 +72,12 @@ const seo = {
   <Seo seo={seo} />
   <Navigation />
 
-  <article class="max-w-4xl mx-auto px-10 py-10">
-    <header class="mb-12">
+  <article class="container-80 mx-auto px-10 py-10">
+    <header class="mb-12 animate-fadeInUp">
       <h1 class="text-6xl font-black tracking-tight text-white mb-4">
         {post.data.title}
       </h1>
-      <div class="flex items-center space-x-4 text-gray-400">
+      <div class="flex items-center space-x-4 text-gray-400 mb-8 animate-fadeInUp delay-100">
         <time datetime={parseDate(post.data.date).toISOString()}>
           {parseDate(post.data.date).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -95,9 +95,18 @@ const seo = {
           </div>
         )}
       </div>
+
     </header>
 
-    <div class="prose prose-invert prose-lg max-w-none">
+    {post.data.feature_image && (
+      <img
+        src={post.data.feature_image}
+        alt={post.data.title}
+        class="w-full md:w-1/2 md:float-right md:ml-8 mb-6 rounded-lg animate-fadeInRight delay-200"
+      />
+    )}
+
+    <div class="prose prose-invert prose-lg max-w-none animate-fadeIn delay-300">
       <Content />
     </div>
 
@@ -112,45 +121,11 @@ const seo = {
 </Layout>
 
 <style>
-  .prose {
-    color: #e5e5e5;
-  }
-
+  /* Scoped overrides for blog post prose - complements global.css prose styles */
+  .prose h1,
   .prose h2,
   .prose h3,
   .prose h4 {
-    color: white;
-    
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .prose p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-  }
-
-  .prose a {
-    color: #8F6AFA;
-    text-decoration: underline;
-  }
-
-  .prose a:hover {
-    color: #0099EE;
-  }
-
-  .prose img {
-    border-radius: 0.5rem;
-    margin: 2rem 0;
-  }
-
-  .prose ul,
-  .prose ol {
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .prose li {
-    margin-bottom: 0.5rem;
+    clear: both;
   }
 </style>

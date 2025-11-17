@@ -24,8 +24,8 @@ const contentMeta = getServiceBySlug('content');
         <div class="bgtext-section">Content That Works</div>
       </div>
 
-      <!-- Icon floating left with full text wrapping -->
-      <div class="float-left mr-6 lg:mr-8 mb-8 flex-shrink-0">
+      <!-- Icon floating right with full text wrapping -->
+      <div class="float-right ml-6 lg:ml-8 mb-8 flex-shrink-0">
         <div class="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl bg-black/70 border border-white/15 shadow-lg flex items-center justify-center">
           {meta && <img src={meta.icon} alt={meta.name} class="w-72 h-72 sm:w-80 sm:h-80" />}
         </div>
@@ -84,7 +84,7 @@ const contentMeta = getServiceBySlug('content');
 
       <!-- Content subsection with pencil icon -->
       <div class="mt-16">
-        <div class="float-left mr-6 lg:mr-8 mb-8 flex-shrink-0">
+        <div class="float-right ml-6 lg:ml-8 mb-8 flex-shrink-0">
           <div class="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl bg-black/70 border border-white/15 shadow-lg flex items-center justify-center">
             {contentMeta && <img src={contentMeta.icon} alt={contentMeta.name} class="w-72 h-72 sm:w-80 sm:h-80" />}
           </div>

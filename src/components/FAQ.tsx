@@ -73,7 +73,7 @@ const FAQ = () => {
 
   return (
     <div className="bg-transparent">
-      <div className="max-w-5xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+      <div className="w-full py-16">
         <div className="relative mb-10">
           {/* Ghost background text, using shared bgtext-section class */}
           <div className="bgtext-section">Questions</div>
