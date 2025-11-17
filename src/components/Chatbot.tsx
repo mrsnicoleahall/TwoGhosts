@@ -25,7 +25,7 @@ Strategic Approach:
 
 Industries: Technology and SaaS, Healthcare and Life Sciences, Professional Services, Consumer Brands, Financial Services
 
-Contact: hello@twoghoststrategy.com | (984) 344-0738
+Contact: hello@twoghoststrategy.com | 919-504-4443
 
 Be conversational, helpful, and embody the Two Ghosts tone: direct, strategic, no-BS, but friendly. Keep responses concise (2-3 paragraphs max).`;
 
@@ -71,6 +71,7 @@ Be conversational, helpful, and embody the Two Ghosts tone: direct, strategic, n
       primaryColor: '#8F6AFA',
       secondaryColor: '#375CDC',
     },
+    theme: 'minimal',
     chatHistory: {
       storageKey: 'twoghosts_chat_history'
     },

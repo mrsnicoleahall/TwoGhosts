@@ -17,7 +17,7 @@ export const serviceMeta = {
     description:
       'Unifying your organization behind a single voice, position, slogan, and value proposition is critical to your success. We make this process painless and actually fun.',
   },
-  'creative-overview': {
+  'creative-content': {
     icon: '/images/icons/bulb.svg',
     name: 'Creative',
     description:
@@ -69,7 +69,7 @@ export function getAllServices() {
       link: '/services/brand-strategy',
     },
     {
-      ...serviceMeta['creative-overview'],
+      ...serviceMeta['creative-content'],
       link: '/services/creative-content',
     },
     {
