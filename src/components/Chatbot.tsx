@@ -1,6 +1,5 @@
 import React from 'react';
 import ChatBot from 'react-chatbotify';
-import LLMPlugin from '@rcb-plugins/llm-connector';
 
 const Chatbot = ({ embedded = false }) => {
   const systemPrompt = `You are a helpful AI assistant for Two Ghosts Strategy, a strategic marketing and brand consultancy.
@@ -36,33 +35,32 @@ Be conversational, helpful, and embody the Two Ghosts tone: direct, strategic, n
     },
     loop: {
       message: async (params: any) => {
-        // Build messages array with system prompt as first message
-        const allMessages = [
-          { role: 'system', content: systemPrompt },
-          ...params.messages || []
-        ];
-        
-        await LLMPlugin({
-          url: 'https://portfolio.mrsnicoleahall.workers.dev/',
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: () => ({
-            messages: allMessages
-          }),
-          handleResponse: async (response: Response) => {
-            const data = await response.json();
-            return data.choices[0].message.content;
+        try {
+          // Build messages array with system prompt as first message
+          const allMessages = [
+            { role: 'system', content: systemPrompt },
+            ...params.messages || []
+          ];
+          
+          const response = await fetch('https://portfolio.mrsnicoleahall.workers.dev/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages: allMessages })
+          });
+          
+          if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
           }
-        })(params);
+          
+          const data = await response.json();
+          return data.choices[0].message.content || "I'm having trouble processing that. Could you try again?";
+        } catch (error) {
+          console.error('Chatbot API error:', error);
+          return "I'm temporarily unavailable. Please try again in a moment.";
+        }
       },
       path: 'loop'
     }
-  };
-
-  const themes = {
-    primaryColor: '#8F6AFA',
-    secondaryColor: '#375CDC',
-    fontFamily: 'Raleway, -apple-system, BlinkMacSystemFont, sans-serif',
   };
 
   const settings = {
@@ -71,7 +69,6 @@ Be conversational, helpful, and embody the Two Ghosts tone: direct, strategic, n
       primaryColor: '#8F6AFA',
       secondaryColor: '#375CDC',
     },
-    theme: 'minimal',
     chatHistory: {
       storageKey: 'twoghosts_chat_history'
     },
@@ -98,7 +95,6 @@ Be conversational, helpful, and embody the Two Ghosts tone: direct, strategic, n
   return (
     <ChatBot
       flow={flow}
-      themes={themes}
       settings={settings}
     />
   );
