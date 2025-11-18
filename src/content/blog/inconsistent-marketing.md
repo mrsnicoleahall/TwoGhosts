@@ -1,8 +1,10 @@
 ---
-title: "THE REAL REASON YOUR MARKETING IS INCONSISTENT"
-slug: the-real-reason-your-marketing-is-inconsistent
-date: 2025-09-11T20:24:00.000+00:00
-updated: 2025-09-11T20:24:00.000+00:00
+title: THE REAL REASON YOUR MARKETING IS INCONSISTENT
+slug: inconsistent-marketing
+date: |
+  2025-09-11T20:21:00.000+00:00
+updated: |
+  2025-09-11T20:21:00.000+00:00
 excerpt: |
   Everyone blames time, tools, or team size for inconsistent marketing. The truth is simpler and less flattering. Your business has no clear priorities, no consistent message, and no internal owner of growth.
 featured: /images/blogs/octopus.svg
