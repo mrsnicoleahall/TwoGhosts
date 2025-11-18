@@ -2,9 +2,9 @@
 title: WHY MOST "MARKETING STRATEGIES" ARE JUST EXPENSIVE TO DO LISTS
 slug: why-most-marketing-strategies-are-just-expensive-to-do-lists
 date: |
-  2025-11-04T20:21:00.000+00:00
+  2025-11-01T20:21:00.000+00:00
 updated: |
-  2025-11-04T20:21:00.000+00:00
+  2025-11-01T20:21:00.000+00:00
 excerpt: |
   Somewhere along the way, strategy got downgraded to color coded to do list with a logo on the cover. Most of what passes for strategy is just a glorified task list with no real diagnosis, no prioritization, and no hard choices. It looks impressive, it sounds impressive, and it does almost nothing to change how the business operates.
 featured: false
