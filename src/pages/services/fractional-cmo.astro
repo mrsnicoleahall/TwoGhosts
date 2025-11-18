@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import { getServiceBySlug } from '../../config/services';
+const slug = 'fractional-cmo';
+const meta = getServiceBySlug(slug);
+---
+
+<Layout title="Fractional CMO - Two Ghosts Strategy">
+  <Navigation />
+
+  <section class="pt-32 pb-16" data-animate>
+    <div class="container-80 mx-auto">
+      <p class="text-sm tracking-[0.25em] uppercase text-gray-400 font-['Raleway']">
+        Services
+      </p>
+      <h1 class="mt-3 text-4xl sm:text-5xl font-black text-white font-['Raleway']">
+        Fractional CMO
+      </h1>
+
+      <div class="section-heading relative mb-8">
+        <div class="bgtext-section">Leadership</div>
+      </div>
+
+      <!-- Icon floating right with full text wrapping -->
+      <div class="float-right ml-6 lg:ml-8 mb-8 flex-shrink-0">
+        <div class="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl bg-black/70 border border-white/15 shadow-lg flex items-center justify-center">
+          <img src="/images/icons/dart.svg" alt="Fractional CMO" class="w-72 h-72 sm:w-80 sm:h-80" />
+        </div>
+      </div>
+
+      <div class="space-y-16">
+        <!-- Section 1 -->
+        <div>
+          <h2 class="text-4xl font-bold text-white mb-6">
+            Senior Marketing Leadership Without the $250K Price Tag
+          </h2>
+          <div class="space-y-4 text-xl text-gray-50">
+            <p>
+              Most companies can't afford a full-time CMO. And honestly, most don't need one. But they do need someone who thinks like a CMO—building strategy, aligning teams, making tough calls, and holding marketing accountable to revenue.
+            </p>
+            <p>
+              That's where we come in. We step into your business as a fractional CMO—bringing senior marketing leadership, strategic thinking, and hands-on execution without the full-time commitment or six-figure salary.
+            </p>
+            <p>
+              We're not consultants who parachute in with a deck and disappear. We embed with your team, roll up our sleeves, and own the outcomes. We build the systems, make the decisions, and stick around long enough to make sure it all actually works.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div>
+          <h2 class="text-4xl font-bold text-white mb-6">
+            What a Fractional CMO Actually Does
+          </h2>
+          <p class="text-xl text-gray-50 mb-6">
+            We handle the strategic and operational leadership your marketing needs—from planning and budgeting to team management and performance tracking.
+          </p>
+          <ul class="list-disc list-inside space-y-3 text-xl text-gray-50 ml-6">
+            <li>Build and execute marketing strategy aligned to business goals</li>
+            <li>Lead, manage, and develop your marketing team</li>
+            <li>Plan budgets and allocate resources strategically</li>
+            <li>Establish KPIs, dashboards, and accountability systems</li>
+            <li>Optimize your marketing tech stack and processes</li>
+            <li>Drive cross-functional alignment with sales, product, and leadership</li>
+            <li>Own pipeline growth, lead quality, and revenue impact</li>
+          </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div>
+          <h2 class="text-4xl font-bold text-white mb-6">
+            Who This Is For
+          </h2>
+          <div class="space-y-4 text-xl text-gray-50">
+            <p>
+              Growing companies that need strategic marketing leadership but aren't ready to hire a full-time executive. CEOs who are tired of being the de facto CMO. Marketing teams with tactical chops but no strategic direction.
+            </p>
+            <p>
+              If your marketing feels scattered, your team needs direction, or you're ready for senior leadership without the full-time hire—let's talk.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-12">
+          <a
+            href="/schedule"
+            class="btn-gradient inline-block px-8 py-3 text-white font-black rounded-full"
+          >
+            Let's Talk Strategy
+          </a>
+        </div>
+      </div>
+
+      <div class="clear-both"></div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

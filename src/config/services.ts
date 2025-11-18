@@ -19,9 +19,9 @@ export const serviceMeta = {
   },
   'creative-content': {
     icon: '/images/icons/bulb.svg',
-    name: 'Creative',
+    name: 'Growth Campaigns',
     description:
-      'Whether your creative needs a complete overhaul or just a bit of an infusion, we have you covered without upsetting your current relationships. We are on a mission to change the world, one idea at a time.',
+      'Most campaigns are a disconnected mess of tactics hoping to magically work together. We build integrated campaigns with a backbone—clear goals, cohesive messaging, and multi-channel execution that actually moves the needle.',
   },
   'content': {
     icon: '/images/icons/pencil.svg',
@@ -35,11 +35,11 @@ export const serviceMeta = {
     description:
       'The base of your marketing efforts and the epicenter of your marketing effectiveness gauge. We assess, rethink, and offer tactical steps to lift the impact of the home base of your efforts.',
   },
-  'growth-campaigns': {
+  'fractional-cmo': {
     icon: '/images/icons/dart.svg',
-    name: 'Branding, Strategy, Creative+',
+    name: 'Fractional CMO',
     description:
-      'We also offer CMO-on-demand / marketing decision services, design, campaign execution, sales strategy, sales enablement via asset production, pitch development, martech stack design, salestech stack design, and website strategy.',
+      'You need senior marketing leadership but can\'t justify a $250K+ hire. We step in as your strategic marketing brain—building plans, leading teams, and making the calls a CMO makes, without the full-time price tag.',
   },
 } as const;
 
@@ -81,8 +81,8 @@ export function getAllServices() {
       link: '/services/cmo-on-demand',
     },
     {
-      ...serviceMeta['growth-campaigns'],
-      link: '/services/growth-campaigns',
+      ...serviceMeta['fractional-cmo'],
+      link: '/services/fractional-cmo',
     },
   ];
 }

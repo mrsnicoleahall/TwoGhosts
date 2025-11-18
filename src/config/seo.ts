@@ -231,6 +231,29 @@ export const seoByRoute: SeoMeta[] = [
     },
   },
   {
+    path: '/services/fractional-cmo',
+    title: 'Fractional CMO | TWOGHOSTS',
+    description:
+      'Senior marketing leadership without the $250K price tag. We step in as your strategic marketing brain—building plans, leading teams, and making the calls a CMO makes.',
+  ogImage: '/images/og/fractional-cmo-og.png',
+  ogType: 'website',
+  canonical: 'https://twoghosts.net/services/fractional-cmo',
+    keywords: ['fractional CMO', 'part-time CMO', 'marketing leadership', 'CMO services', 'strategic marketing'],
+    schemaJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Fractional CMO',
+      'provider': {
+        '@type': 'Organization',
+        'name': 'TWOGHOSTS',
+      },
+  'url': 'https://twoghosts.net/services/fractional-cmo',
+      'description': 'Fractional CMO services providing strategic marketing leadership, team management, budget planning, and performance measurement for companies that need senior marketing expertise without the full-time commitment.',
+      'serviceType': 'Fractional CMO & Marketing Leadership',
+      'areaServed': 'US',
+    },
+  },
+  {
     path: '/blog',
     title: 'Blog | TWOGHOSTS',
     description:
