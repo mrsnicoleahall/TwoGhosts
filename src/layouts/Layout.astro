@@ -23,6 +23,6 @@ const seo = getSeoForPath(Astro.url.pathname);
     <slot />
     <Chatbot client:load />
     <!-- AnimateOnView component: use client:load so we can pass props per page -->
-    <AnimateOnView client:load selector="[data-animate], .animate-on-scroll" threshold={0.12} stagger={80} />
+    <AnimateOnView client:load selector="[data-animate], .animate-on-scroll" threshold={0.15} stagger={50} />
   </body>
 </html>

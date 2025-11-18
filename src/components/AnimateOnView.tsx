@@ -9,9 +9,9 @@ type Props = {
 
 const AnimateOnView: React.FC<Props> = ({
   selector = '[data-animate], .animate-on-scroll',
-  threshold = 0.12,
-  rootMargin = '0px 0px -10% 0px',
-  stagger = 80,
+  threshold = 0.15,
+  rootMargin = '0px 0px -5% 0px',
+  stagger = 50,
 }) => {
   useEffect(() => {
     if (typeof window === 'undefined' || !document) return;
@@ -19,18 +19,34 @@ const AnimateOnView: React.FC<Props> = ({
     const items = Array.from(document.querySelectorAll<HTMLElement>(selector));
     if (!items.length) return;
 
-    items.forEach((el, i) => {
+    // Group items by their parent section for better staggering
+    const itemsBySection = new Map<Element, HTMLElement[]>();
+
+    items.forEach((el) => {
       // don't re-init elements that already have in-view
       if (el.classList.contains('in-view')) return;
-      // initial state
-      el.classList.add('slide-init');
-      const dir = el.dataset.animateDir || 'up';
-      if (dir === 'left') el.classList.add('slide-in-left');
-      else if (dir === 'right') el.classList.add('slide-in-right');
-      else el.classList.add('slide-in');
-      // set stagger via inline style so we can vary per element
-      const delay = (i % 10) * stagger; // prevent excessive delay
-      el.style.transitionDelay = `${delay}ms`;
+
+      // Find the closest section parent
+      const section = el.closest('section') || document.body;
+      if (!itemsBySection.has(section)) {
+        itemsBySection.set(section, []);
+      }
+      itemsBySection.get(section)!.push(el);
+    });
+
+    // Apply animations with stagger per section
+    itemsBySection.forEach((sectionItems) => {
+      sectionItems.forEach((el, i) => {
+        // initial state
+        el.classList.add('slide-init');
+        const dir = el.dataset.animateDir || 'up';
+        if (dir === 'left') el.classList.add('slide-in-left');
+        else if (dir === 'right') el.classList.add('slide-in-right');
+        else el.classList.add('slide-in');
+        // set stagger via inline style with reduced delay for faster feel
+        const delay = Math.min(i * stagger, 400); // cap at 400ms
+        el.style.transitionDelay = `${delay}ms`;
+      });
     });
 
     const io = new IntersectionObserver(

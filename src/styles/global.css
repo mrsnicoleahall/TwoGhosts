@@ -435,8 +435,8 @@
 /* Slide-in animations utilities used by the site-wide observer */
 .slide-in {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 600ms cubic-bezier(.2,.8,.2,1), transform 600ms cubic-bezier(.2,.8,.2,1);
+  transform: translateY(20px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -447,7 +447,9 @@
 
 .slide-in-left {
   opacity: 0;
-  transform: translateX(-24px);
+  transform: translateX(-20px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .slide-in-left.in-view {
@@ -457,7 +459,9 @@
 
 .slide-in-right {
   opacity: 0;
-  transform: translateX(24px);
+  transform: translateX(20px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .slide-in-right.in-view {
