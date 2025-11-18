@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Chatbot from '../components/Chatbot.tsx';
+import AnimateOnView from '../components/AnimateOnView';
 import Seo from '../components/Seo.astro';
 import { getSeoForPath } from '../config/seo';
 
@@ -21,58 +22,7 @@ const seo = getSeoForPath(Astro.url.pathname);
   <body class="min-h-screen bg-black text-white overflow-x-hidden">
     <slot />
     <Chatbot client:load />
-    <!-- Site-wide animate-on-view script: finds elements and applies slide-in when they enter viewport -->
-    <script type="module">
-      (function(){
-        const selectors = [
-          'header', 'section', 'article', '.prose', 'img', '.card', '.service-card', '.section-title', '.section-heading', '.btn-gradient', 'nav', 'footer'
-        ];
-
-        function collect() {
-          const set = new Set();
-          selectors.forEach(s => {
-            document.querySelectorAll(s).forEach(el => set.add(el));
-          });
-          return Array.from(set).filter(Boolean);
-        }
-
-        function applyInitial(el) {
-          if (el.classList.contains('no-animate')) return;
-          if (el.dataset && el.dataset.animate === 'none') return;
-          // decide direction
-          const dir = el.dataset.animateDir || (el.classList.contains('section-heading') ? 'left' : 'up');
-          el.classList.add('slide-in');
-          if (dir === 'left') el.classList.add('slide-in-left');
-          if (dir === 'right') el.classList.add('slide-in-right');
-        }
-
-        function observeAll() {
-          const items = collect();
-          items.forEach((el, i) => {
-            applyInitial(el);
-            // stagger delays a little based on order inside collection
-            const delayIndex = Math.min(5, Math.floor(i/3) + 1);
-            el.classList.add('animate-delay-' + (delayIndex * 100));
-          });
-
-          const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                io.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0.12 });
-
-          items.forEach(el => io.observe(el));
-        }
-
-        if (document.readyState === 'loading') {
-          window.addEventListener('DOMContentLoaded', observeAll);
-        } else {
-          observeAll();
-        }
-      })();
-    </script>
+    <!-- AnimateOnView component: use client:load so we can pass props per page -->
+    <AnimateOnView client:load selector="[data-animate], .animate-on-scroll" threshold={0.12} stagger={80} />
   </body>
 </html>

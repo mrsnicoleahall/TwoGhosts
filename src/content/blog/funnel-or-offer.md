@@ -11,7 +11,7 @@ featured: false
 feature_image: /images/blogs/seetheproblem.svg
 author: Nicole Hall
 tags:
-  - News
+  - Marketing Channels, Marketing Strategy
 meta_title: YOUR FUNNEL IS NOT BROKEN, YOUR OFFER IS
 meta_description: |
   Most funnels do not fail because of structure. They fail because the offer is weak, unclear, overpriced, or irrelevant. This explains how to fix that.

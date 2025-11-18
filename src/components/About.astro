@@ -3,12 +3,12 @@
 import Button from './Button.astro';
 ---
 
-<section id="about" class="py-32">
+<section id="about" class="py-32" data-animate>
   <div class="w-full px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32">
     <div class="grid items-center gap-20 lg:grid-cols-2">
 
       <!-- Illustration Column -->
-      <div class="order-1 flex justify-center lg:justify-start">
+  <div class="order-1 flex justify-center lg:justify-start" data-animate data-animate-dir="right">
         <div class="w-full max-w-xl lg:max-w-2xl">
           <img
             src="/images/illustrations/femalemeditation.svg"
@@ -19,7 +19,7 @@ import Button from './Button.astro';
       </div>
 
       <!-- Text Column -->
-      <div class="order-2 font-['Raleway'] text-gray-50">
+  <div class="order-2 font-['Raleway'] text-gray-50" data-animate data-animate-dir="left">
         <p class="text-sm tracking-[0.25em] uppercase text-gray-400">
           About TWOGHOSTS
         </p>

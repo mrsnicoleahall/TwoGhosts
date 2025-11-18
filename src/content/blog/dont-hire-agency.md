@@ -2,7 +2,7 @@
 title: WHEN YOU SHOULD NOT HIRE TWO GHOSTS (OR ANY AGENCY)
 slug: when-you-should-not-hire-two-ghosts-or-any-agency
 date: |
-  2023-11-14T20:22:00.000+00:00
+  2025-11-14T20:22:00.000+00:00
 updated: |
   2025-11-14T20:22:00.000+00:00
 excerpt: |
@@ -11,7 +11,7 @@ featured: false
 feature_image: /images/blogs/badguy.svg
 author: Nicole Hall
 tags:
-  - News
+  - Marketing Agencies
 meta_title: WHEN YOU SHOULD NOT HIRE TWO GHOSTS (OR ANY AGENCY)
 meta_description: |
   Hiring a marketing agency at the wrong time is expensive self sabotage. This post explains when not to hire Two Ghosts, or anyone else.

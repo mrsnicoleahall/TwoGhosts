@@ -1,0 +1,73 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import Footer from '../../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  const PAGE_SIZE = 6;
+  const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
+
+  // generate pages 2..totalPages (page 1 is the main /blog)
+  const paths = [];
+  for (let p = 2; p <= totalPages; p++) {
+    paths.push({ params: { page: String(p) } });
+  }
+  return paths;
+}
+
+const PAGE_SIZE = 6;
+
+export async function get({ params }) {
+  const allPosts = await getCollection('blog');
+  const posts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  const pageNum = Number(params.page || 1);
+  const start = (pageNum - 1) * PAGE_SIZE;
+  const pagePosts = posts.slice(start, start + PAGE_SIZE);
+
+  return {
+    props: {
+      posts: pagePosts,
+      pageNum,
+      totalPages: Math.ceil(posts.length / PAGE_SIZE),
+    },
+  };
+}
+---
+
+<Layout title={`Blog — Page ${Astro.props.pageNum} — Two Ghosts`}> 
+  <Navigation />
+
+  <section class="container-80 mx-auto px-10 py-10">
+    <div class="section-heading relative mb-8">
+      <div class="bgtext-section">Insights</div>
+      <h1 class="section-title">Blog</h1>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      {(Astro.props.posts || []).map((post) => (
+        <a href={`/blog/${post.slug}`} class="glass rounded-lg hover:bg-white/10 transition-all group overflow-hidden flex flex-col" data-animate>
+          {post.data.feature_image && (
+            <div class="w-full h-48 overflow-hidden">
+              <img src={post.data.feature_image} alt={post.data.title} class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+            </div>
+          )}
+          <div class="p-6 flex-1 flex flex-col">
+            <h2 class="text-2xl font-bold mb-3 group-hover:gradient-ghost transition-all">{post.data.title}</h2>
+            <p class="text-gray-300 mb-4 flex-1">{post.data.excerpt}</p>
+            <span class="text-sm text-gray-400">{new Date(post.data.date).toLocaleDateString()}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <nav class="mt-12 flex justify-center items-center space-x-4">
+      {Array.from({ length: Astro.props.totalPages || 1 }).map((_, i) => (
+        <a href={i === 0 ? '/blog' : `/blog/page/${i + 1}`} class={`px-4 py-2 rounded border border-white/10 bg-white/5 ${i+1 === (Astro.props.pageNum || 1) ? 'opacity-70' : ''}`}>{i + 1}</a>
+      ))}
+    </nav>
+  </section>
+
+  <Footer />
+</Layout>
