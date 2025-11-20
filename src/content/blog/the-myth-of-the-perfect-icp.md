@@ -1,5 +1,5 @@
 ---
-title: THE MYTH OF THE “PERFECT ICP”
+title: THE MYTH OF THE 'PERFECT ICP'
 slug: the-myth-of-the-perfect-icp
 date: |
   2025-11-24T20:25:44.000+00:00
@@ -13,9 +13,9 @@ featured: false
 feature_image: /images/blogs/drool.svg
 author: Nicole Hall
 tags: Sales
-meta_title: THE MYTH OF THE “PERFECT ICP”
+meta_title: THE MYTH OF THE 'PERFECT ICP'
 meta_description: |
-  Companies obsess over crafting the “perfect” Ideal Customer Profile like it’s a sacred text handed down on stone tablets. But most ICPs are guesses built on bias and wishful thinking. Markets shift, budgets shift, and your ICP has to shift with them.
+  Companies obsess over crafting the 'perfect' Ideal Customer Profile like it’s a sacred text handed down on stone tablets. But most ICPs are guesses built on bias and wishful thinking. Markets shift, budgets shift, and your ICP has to shift with them.
 ---
 
 Companies obsess over crafting the “perfect” Ideal Customer Profile like it’s a sacred text handed down on stone tablets.
