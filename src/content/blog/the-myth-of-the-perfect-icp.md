@@ -12,7 +12,7 @@ excerpt: |
 featured: false
 feature_image: /images/blogs/drool.svg
 author: Nicole Hall
-tags: Sales, Marketing
+tags: Sales
 meta_title: THE MYTH OF THE “PERFECT ICP”
 meta_description: |
   Companies obsess over crafting the “perfect” Ideal Customer Profile like it’s a sacred text handed down on stone tablets. But most ICPs are guesses built on bias and wishful thinking. Markets shift, budgets shift, and your ICP has to shift with them.
