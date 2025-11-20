@@ -36,22 +36,25 @@ Be conversational, helpful, and embody the Two Ghosts tone: direct, strategic, n
     loop: {
       message: async (params: any) => {
         try {
-          // Build messages array with system prompt as first message
+          // Get the user's input from params
+          const userMessage = params.userInput;
+
+          // Build messages array with system prompt and user message
           const allMessages = [
             { role: 'system', content: systemPrompt },
-            ...params.messages || []
+            { role: 'user', content: userMessage }
           ];
-          
+
           const response = await fetch('https://portfolio.mrsnicoleahall.workers.dev/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages: allMessages })
           });
-          
+
           if (!response.ok) {
             throw new Error(`API error: ${response.status}`);
           }
-          
+
           const data = await response.json();
           return data.choices[0].message.content || "I'm having trouble processing that. Could you try again?";
         } catch (error) {
