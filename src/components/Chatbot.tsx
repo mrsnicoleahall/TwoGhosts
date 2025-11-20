@@ -83,28 +83,8 @@ Be conversational, helpful, and embody the Two Ghosts tone: direct, strategic, n
     audio: {
       disabled: true,
     },
-    // Prefer an image file placed at `/public/chatbot-preview.png`.
-    // If that file isn't present the component will fall back to the ghost emoji.
     chatButton: {
-      // You can drop the attached image at `public/chatbot-preview.png`.
-      // We pass a React element here (an <img />). The library renders this value directly
-      // and will display the image as the chat bobble if supported.
-      icon: (
-        <img
-          src="/chatbot-preview.png"
-          alt="Two Ghosts chat"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '9999px' }}
-          onError={(e: any) => {
-            // On error (image not present), replace with emoji fallback
-            const target = e.currentTarget as HTMLImageElement;
-            // hide broken image and set fallback text node on parent if possible
-            target.style.display = 'none';
-            // nothing else to do here; the chat library should show the emoji fallback below if needed
-          }}
-        />
-      ),
-      // fallbackEmoji used by our component (in case the library expects a primitive)
-      fallbackEmoji: '👻',
+      icon: '/chatbot-preview.png',
     },
     botBubble: {
       simStream: true,
