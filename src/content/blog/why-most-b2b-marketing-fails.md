@@ -12,7 +12,8 @@ excerpt: |
 featured: false
 feature_image: /images/blogs/trex.svg
 author: Nicole Hall
-tags: Marketing Strategy
+tags:
+  - Marketing Strategy
 meta_title: WHY MOST B2B MARKETING FAILS
 meta_description: |
   Most B2B marketing collapses under the weight of its own nonsense. Teams cling to buzzwords, leadership clings to vanity metrics, and everyone hopes the buyer won’t notice that nothing actually says anything. Buyers don’t want poetry. They want clarity and proof. If your message can’t survive that scrutiny, your funnel is a sieve.
