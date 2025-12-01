@@ -12,6 +12,14 @@ const seo = getSeoForPath(Astro.url.pathname);
 <!doctype html>
 <html lang="en" class="overflow-x-hidden">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-11ZC7WNBPM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-11ZC7WNBPM');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <Seo seo={seo} />
@@ -19,6 +27,10 @@ const seo = getSeoForPath(Astro.url.pathname);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/chatbot.css">
+    <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"68dc0aa54fa6740021a7a240"})},
+document.head.appendChild(o)}initApollo();</script>
   </head>
   <body class="min-h-screen bg-black text-white overflow-x-hidden">
     <slot />
