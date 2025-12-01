@@ -4,10 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && npm run check:seo",
+    "build": "astro build && npm run post:build",
     "preview": "astro preview",
     "astro": "astro",
-    "check:seo": "node scripts/check-seo-routes.mjs"
+    "check:seo": "node scripts/check-seo-routes.mjs",
+    "post:build": "npm run check:seo && node scripts/post-build-sitemap.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
